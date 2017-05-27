@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Certificados</a>
+                    <a href="curso">Registro de curso</a>
                 </li>
                 <li>
                     <a href="#">Alumnos</a>
@@ -32,9 +32,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Instructores Freedive Gravedad Cero</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <h1>Bienvenidos Instructores Freedive Gravedad Cero</h1>
+                        <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán pagar y emitir certificados avalados para sus alumnos.</p>
+                        <p><img src="{{URL::asset('/image/logoFGC.jpg')}}" alt="profile Pic" height="200" width="200"></p>
+                        
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menú de Instructores</a>
                     </div>
                 </div>

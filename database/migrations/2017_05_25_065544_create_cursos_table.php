@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCertificadosTable extends Migration
+class CreateCursosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,16 @@ class CreateCertificadosTable extends Migration
     public function up()
     {
         //
-            Schema::create('certificados', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+            Schema::create('cursos', function (Blueprint $table) {
+            $table->increments('id_curso');
+            $table->string('tcurso');
             $table->integer('id_instructor');
-            $table->bigInteger('nalumnos');
+            $table->integer('nalumnos');
             $table->dateTime('dcreada');
             $table->date('dfecha_pago');
-        });
+            $table->date('dfechai_curso');
+            $table->date('dfechaf_curso');
+            });
     }
 
     /**
