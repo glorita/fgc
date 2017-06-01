@@ -14,13 +14,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="curso">Registro de curso</a>
+                    <a href="curso">Course Registry</a>
                 </li>
                 <li>
-                    <a href="#">Alumnos</a>
+                    <a href="#">Courses</a>
                 </li>
                 <li>
-                    <a href="#">Pagos Pendientes</a>
+                    <a href="#">Certificates Payments</a>
                 </li>
               
             </ul>
@@ -35,6 +35,10 @@
                         <h3 align="center">PLANILLA SOLICITUD DE CARNETS Y CERTIFICACIONES INTERNACIONALES 
 ESCUELA AMERICANA “FREEDIVE GRAVEDAD CERO”.
 </h3>
+                        
+ <div class="panel panel-default">
+  <div class="panel-heading">Course Information</div>
+  <div class="panel-body">
                         <form class="form-inline">
                             <div class="form-group"> <!-- Start Date -->
                             <input class="form-control" id="sdate" name="sdate" type="date" placeholder="Start Date"/>
@@ -50,38 +54,66 @@ ESCUELA AMERICANA “FREEDIVE GRAVEDAD CERO”.
                             </div>
                             
                         </form>
-                        <h4>Registro de Alumnos</h4>
-                       <form class="form-inline">
-	
-                        <div class="form-group"> <!-- Username field -->
-                            <input class="form-inline" id="first_name" name="first_name" type="text" placeholder="First Name"/>
-                        </div>
-	
-                        <div class="form-group"> <!-- Password field -->
-                        <input class="form-inline" class="col-xs-3" id="last_name" name="last_name" type="text" placeholder="Last Name"/>
-                        </div>
-                        <div class="form-group"> <!-- Password field -->
-                            <input class="form-inline" id="id" name="id" type="text" placeholder="Identification ID"/>
-                        </div>
-                        <div class="form-group"> <!-- Password field -->
-                            <input class="form-inline" id="nationality" name="nationality" type="text" placeholder="Nationality"/>
-                        </div>
-                        <div class="form-group"> <!-- Date of Birthday -->
-                            <input class="form-inline" id="birthday" name="birthday" type="date" placeholder="Date of Birthday"/>
-                        </div>
-                        <div class="form-group"> <!-- Blood Type -->
-                            <input class="form-control" id="blood" name="blood" type="text" placeholder="Blood Type"/>
-                        </div>
-                         <div class="form-group"> <!-- City -->
-                            <input class="form-control" id="city" name="city" type="text" placeholder="City Adress"/>
-                        </div>
+      </div>
+  <div class="panel-heading">Participants List </div>
+  <div class="panel-body">
+  
+    <table>
+    	<thead>
+            <tr>
+		<th><label>Identification ID</label></th>
+                <th><label>Complete Name</label></th>
+                <th><label>Date of Birthday</label></th>
+		<th><label>Blood Type</label></th>
+                <th><label>City Address</label></th>
+                <th><label>Nationality</label></th>
+		<th></th>
+            </tr>
+	</thead>
 	
 	
+        <tbody>
+            <tr>
+		<td><input class="form-control" name="identification[]" type="text" placeholder="ID" /></td>
+                <td><input class="form-control" name="name[]" type="text" placeholder="Name" /></td>
+                <td>
+               
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+       
+                </td>
+                <td><select class="form-control" id="blood" name="blood[]">
+      
+                                                    <option value="">Blood Type</option>
+                                                    <option value="A+">A+</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="O+">O+</option>
+                                                    <option value="O-">O-</option>
+                                                    <option value="AB+">AB+</option>
+                                                    <option value="AB-">AB-</option>
+                                                  </select></td>
+                <td><input class="form-control" name="city[]" type="text" placeholder="City Address" /></td>
+		<td><input class="form-control" name="nationality[]" type="text" placeholder="Nationality" /></td>
+                <td><button class="btn btn-success btn-add" type="button">
+			<i class="glyphicon glyphicon-plus gs"></i>
+                    </button>
+		</td>
+            </tr>
+	</tbody>
+	</table>
+<div class="clear"></div>
+  
+  </div>
+  <div class="panel-footer"><small>Haga clic <span class="glyphicon glyphicon-plus gs"></span> para agregar otro alumno al curso</small>, <small>Haga clic <span class="glyphicon glyphicon-minus gs"></span> para eliminar un alumno</small></div>
+
+</div>
 	
 	
-	
-	
-</form>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menú de Instructores</a>
                     </div>
                 </div>

@@ -2034,3 +2034,19 @@ ul.redes li a#ins{
     color: #fff !important;
 }
 
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}
+
+td {
+ padding:2px;   
+}
+
+
+
