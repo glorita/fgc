@@ -14,13 +14,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="curso">Course Registry</a>
+                    <a href="curso">Registro de curso</a>
                 </li>
                 <li>
-                    <a href="#">Courses</a>
+                    <a href="#">Alumnos</a>
                 </li>
                 <li>
-                    <a href="#">Certificates Payments</a>
+                    <a href="#">Pagos Pendientes</a>
                 </li>
               
             </ul>
@@ -31,91 +31,108 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h3 align="center">PLANILLA SOLICITUD DE CARNETS Y CERTIFICACIONES INTERNACIONALES 
-ESCUELA AMERICANA “FREEDIVE GRAVEDAD CERO”.
-</h3>
-                        
- <div class="panel panel-default">
-  <div class="panel-heading">Course Information</div>
-  <div class="panel-body">
-                        <form class="form-inline">
-                            <div class="form-group"> <!-- Start Date -->
-                            <input class="form-control" id="sdate" name="sdate" type="date" placeholder="Start Date"/>
-                            </div>
-                            <div class="form-group"> <!-- End Date -->
-                            <input class="form-control" id="edate" name="edate" type="date" placeholder="End Date"/>
-                            </div>
-                            <div class="form-group"> <!-- Curso -->
-                            <input class="form-control" id="level" name="level" type="text" placeholder="Course Level"/>
-                            </div>
-                            <div class="form-group"> <!-- Curso -->
-                            <input class="form-control" id="country" name="country" type="text" placeholder="Country"/>
-                            </div>
-                            
-                        </form>
-      </div>
-  <div class="panel-heading">Participants List </div>
-  <div class="panel-body">
-  
-    <table>
-    	<thead>
-            <tr>
-		<th><label>Identification ID</label></th>
-                <th><label>Complete Name</label></th>
-                <th><label>Date of Birthday</label></th>
-		<th><label>Blood Type</label></th>
-                <th><label>City Address</label></th>
-                <th><label>Nationality</label></th>
-		<th></th>
-            </tr>
-	</thead>
-	
-	
-        <tbody>
-            <tr>
-		<td><input class="form-control" name="identification[]" type="text" placeholder="ID" /></td>
-                <td><input class="form-control" name="name[]" type="text" placeholder="Name" /></td>
-                <td>
-               
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-       
-                </td>
-                <td><select class="form-control" id="blood" name="blood[]">
-      
-                                                    <option value="">Blood Type</option>
-                                                    <option value="A+">A+</option>
-                                                    <option value="A-">A-</option>
-                                                    <option value="B+">B+</option>
-                                                    <option value="B-">B-</option>
-                                                    <option value="O+">O+</option>
-                                                    <option value="O-">O-</option>
-                                                    <option value="AB+">AB+</option>
-                                                    <option value="AB-">AB-</option>
-                                                  </select></td>
-                <td><input class="form-control" name="city[]" type="text" placeholder="City Address" /></td>
-		<td><input class="form-control" name="nationality[]" type="text" placeholder="Nationality" /></td>
-                <td><button class="btn btn-success btn-add" type="button">
-			<i class="glyphicon glyphicon-plus gs"></i>
-                    </button>
-		</td>
-            </tr>
-	</tbody>
-	</table>
-<div class="clear"></div>
-  
-  </div>
-  <div class="panel-footer"><small>Haga clic <span class="glyphicon glyphicon-plus gs"></span> para agregar otro alumno al curso</small>, <small>Haga clic <span class="glyphicon glyphicon-minus gs"></span> para eliminar un alumno</small></div>
+                            <div class="col-md-8 col-md-offset-2">
+                        <h1>Registrar Curso</h1>
+                        <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán registrar los cursos que serán  o han sido dictados.</p>
+                        <div class="panel-body">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('new') }}">
+                            {{ csrf_field() }}
 
-</div>
-	
-	
+                        <div class="form-group{{ $errors->has('pais') ? ' has-error' : '' }}">
+                            <label for="pais" class="col-md-4 control-label">Pais:</label>
+
+                            <div class="col-md-6">
+                           
+                                    <select class="form-control" id="pais">
+                                      <option>Colombia</option>
+                                      <option>Ecuador</option>
+                                      <option>Estados Unidos</option>
+                                      <option>Panama</option>
+                                      <option>Venezuela</option>
+                                    </select>
+
+                                @if ($errors->has('pais'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('pais') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('fechai') ? ' has-error' : '' }}">
+                            <label for="fechai" class="col-md-4 control-label">Fecha de Inicio:</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="date" class="form-control" name="email" value="{{ old('fechai') }}" required>
+
+                                @if ($errors->has('fechai'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fechai') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('fechaf') ? ' has-error' : '' }}">
+                            <label for="fechaf" class="col-md-4 control-label">Fecha Fin:</label>
+
+                            <div class="col-md-6">
+                                <input id="fechaf" type="date" class="form-control" name="fechaf" required>
+
+                                @if ($errors->has('fechaf'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fechaf') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Tipo de Curso:</label>
+
+                            <div class="col-md-6">
+                                 <select class="form-control" id="tcurso">
+                                      <option>Curso Básico - Nivel 1</option>
+                                      <option>Curso Básico - Nivel 1 - Enfocado a la Pesca Submarina</option>
+                                      <option>Curso Avanzado - Nivel 2 </option>
+                                      <option>Curso Avanzado - Nivel 2- Enfocado a la Pesca Submarina</option>
+                                      <option>Curso de Rescate y Salvamento - Nivel 3</option>
+                                      <option>Curso de Instructor</option>
+                                      <option>Curso de Instructor Master</option>
+                                      <option>Curso Avanzado: Apnea Competitiva en Piscina</option>
+                                      <option>Curso Avanzado: Apnea Competitiva en Profundidad</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('nparticipantes') ? ' has-error' : '' }}">
+                            <label for="nparticipantes" class="col-md-4 control-label">Nro. Participantes:</label>
+
+                            <div class="col-md-6">
+                                <input id="nparticipantes" type="number" class="form-control" name="nparticipantes" required>
+
+                                @if ($errors->has('nparticipantes'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('nparticipantes') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                            
+                        </p>
+                        
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menú de Instructores</a>
                     </div>
+                    
                 </div>
             </div>
         </div>
