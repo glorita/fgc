@@ -35,7 +35,7 @@
                         <h1>Registrar Curso</h1>
                         <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán registrar los cursos que serán  o han sido dictados.</p>
                         <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('new') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('store') }}">
                             {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('pais') ? ' has-error' : '' }}">
@@ -63,7 +63,7 @@
                             <label for="fechai" class="col-md-4 control-label">Fecha de Inicio:</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="date" class="form-control" name="email" value="{{ old('fechai') }}" required>
+                                <input id="fechai" type="date" class="form-control" name="fechai" value="{{ old('fechai') }}" required>
 
                                 @if ($errors->has('fechai'))
                                     <span class="help-block">
@@ -121,7 +121,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Registrar Curso
                                 </button>
                             </div>
                         </div>

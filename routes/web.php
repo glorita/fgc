@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/curso', 'CursoController@index')->name('new');
+
+Route::resource('alumno', 'AlumnoController');

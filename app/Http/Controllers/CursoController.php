@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\cursos;
+use App\Cursos;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -16,6 +16,12 @@ class CursoController extends Controller
     {
         //
          return view('curso/new');
+            // get all the nerds
+        $cursos = Curso::all();
+
+        // load the view and pass the nerds
+        return View::make('cursos.index')
+            ->with('cursos', $cursos);
        
     }
 
@@ -27,7 +33,7 @@ class CursoController extends Controller
     public function create()
     {
         //
-         
+         return view('curso/new');
     }
 
     /**
@@ -38,7 +44,30 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $rules = array(
+            'pais'       => 'required',
+            'fechai'      => 'required|date',
+            'fechaf' => 'required|date'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('curso/new')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $nerd = new Curso;
+            $nerd->pais       = Input::get('pais');
+            $nerd->fechai      = Input::get('fechai');
+            $nerd->fechaf = Input::get('fechaf');
+            $nerd->save();
+
+            // redirect
+            Session::flash('message', 'Curso registrado Satisfactoriamente!');
+            return Redirect::to('cursos');
+        }
     }
 
     /**
