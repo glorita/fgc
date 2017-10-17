@@ -33,7 +33,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Bienvenidos Instructores Freedive Gravedad Cero</h1>
+                        <h1>Módulo de Alumnos Freedive Gravedad Cero</h1>
                         <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán pagar y emitir certificados avalados para sus alumnos.</p>
       
                             
