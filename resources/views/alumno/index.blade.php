@@ -34,17 +34,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Módulo de Alumnos Freedive Gravedad Cero</h1>
-                        <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán pagar y emitir certificados avalados para sus alumnos.</p>
+                        <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán registrar y actualizar alumnos.
+                            </p>
       
-                            
-    <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
+                    
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+        <th>#</th>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>--</th>
-        <th>--</th>
+        <th>Edad</th>
+        <th>Ciudad</th>
+        <th>País</th>
       </tr>
     </thead>
 
@@ -54,15 +56,17 @@
         <td>{{$post['nombre']}}</td>
         <td>{{$post['apellido']}}</td>
         <td><a href="{{action('AlumnoController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></td>
-        <td><form action="{{action('AlumnoController@destroy', $post['id'])}}" method="post">
+        <td><form action="{{action('AlumnoController@destroy', $post['id'])}}" method="post" >
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-default" type="submit">Eliminar</button>
             </form><td/>
       </tr>
       @endforeach
 
   </table>
+                            
+     </div>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menú de Instructores</a>
                     </div>
                 </div>
@@ -73,7 +77,11 @@
     </div>
     <!-- /#wrapper -->
 
-
+    <script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 @endsection
 
 
