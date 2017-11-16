@@ -2,61 +2,89 @@
 
 @section('content')
 <body>
-<div class="container">
 
-<nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="{{ URL::to('cursos') }}">Nerd Alert</a>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Instructores FGO
+                    </a>
+                </li>
+                <li>
+                    <a href="curso">Registro de curso</a>
+                </li>
+                <li>
+                    <a href="alumno">Alumnos</a>
+                </li>
+                <li>
+                    <a href="#">Pagos Pendientes</a>
+                </li>
+              
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Módulo de Alumnos Freedive Gravedad Cero</h1>
+                        <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán registrar y actualizar alumnos.
+                            <a href="/alumno/create"><span class="glyphicon glyphicon-plus-sign"></span></p>
+      
+                            
+<table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>11</th>
+                <th>22 date</th>
+            </tr>
+        </thead>
+        <tfoot>
+           <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>11</th>
+                <th>22 date</th>
+            </tr>
+        </tfoot>
+        <tbody>
+
+      @foreach($alumnos as $post)
+      <tr>
+        <td>{{$post['id']}}</td>
+        <td>{{$post['nombre']}}</td>
+        <td>{{$post['apellido']}}</td>
+        <td><a href="{{action('AlumnoController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></td>
+        <td><form action="{{action('AlumnoController@destroy', $post['id'])}}" method="post" >
+            {{csrf_field()}}
+            <input name="_method" type="hidden" value="DELETE">
+            <button class="btn btn-default" type="submit">Delete</button>
+            </form><td/>
+      </tr>
+      @endforeach
+        </tbody>
+  </table>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menú de Instructores</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-    <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('cursos') }}">View All Nerds</a></li>
-        <li><a href="{{ URL::to('cursos/new') }}">Create a Nerd</a>
-    </ul>
-</nav>
+    <!-- /#wrapper -->
 
-<h1>Cursos Registrados</h1>
 
-<!-- will be used to show any messages -->
-@if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-@endif
+@endsection
 
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <td>ID</td>
-            <td>Pais</td>
-            <td>Fecha Inicio</td>
-            <td>Fecha Fin</td>
-       
-        </tr>
-    </thead>
-    <tbody>
-    @foreach($nerds as $key => $value)
-        <tr>
-            <td>{{ $value->id_curso }}</td>
-            <td>{{ $value->dfechai_curso }}</td>
-            <td>{{ $value->dfechaf_curso }}</td>
-           
 
-            <!-- we will also add show, edit, and delete buttons -->
-            <td>
-
-                <!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
-
-                <!-- show the nerd (uses the show method found at GET /nerds/{id} -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('nerds/' . $value->id) }}">Show this Nerd</a>
-
-                <!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-                <a class="btn btn-small btn-info" href="{{ URL::to('nerds/' . $value->id . '/edit') }}">Edit this Nerd</a>
-
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
-
-</div>
-</body>
-</html>
+ 

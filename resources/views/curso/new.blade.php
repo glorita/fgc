@@ -17,7 +17,7 @@
                     <a href="curso">Registro de curso</a>
                 </li>
                 <li>
-                    <a href="#">Alumnos</a>
+                    <a href="alumno">Alumnos</a>
                 </li>
                 <li>
                     <a href="#">Pagos Pendientes</a>

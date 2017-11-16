@@ -20,7 +20,7 @@ class CursoController extends Controller
         $cursos = Curso::all();
 
         // load the view and pass the nerds
-        return View::make('cursos.index')
+        return View::make('curso.index')
             ->with('cursos', $cursos);
        
     }

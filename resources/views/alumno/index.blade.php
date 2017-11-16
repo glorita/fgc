@@ -47,6 +47,8 @@
         <th>Edad</th>
         <th>Ciudad</th>
         <th>País</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
 
@@ -61,6 +63,10 @@
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-default" type="submit">Eliminar</button>
             </form><td/>
+        <td><p><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+        <td><p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    
+        
       </tr>
       @endforeach
 

@@ -117,3 +117,8 @@ update:Ne},Po={create:Re,update:Re},Fo={create:Le,update:Le},qo=u(function(t){va
    bindDatePicker();
  });
  
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
