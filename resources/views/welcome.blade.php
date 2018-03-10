@@ -62,12 +62,63 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            
+             /* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 80%;
+    min-height: 80%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+#myBtn:hover {
+    background: #ddd;
+    color: black;
+} 
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
+  
+        
+
+         
+            
+             <!-- The video -->
+<video autoplay muted loop id="myVideo">
+  <source src="{{URL::asset('/image/videofgc.MP4')}}" type="video/mp4">
+</video>
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <h1>Instructores Freedive Gravedad Cero</h1>
+  
+  <!-- Use a button to pause/play the video with JavaScript 
+ <button id="myBtn" onclick="myFunction()">Pause</button>-->
+  
+      @if (Route::has('login'))
+                <div class="bottom-center links">
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -76,21 +127,25 @@
                     @endif
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    
-                    Instructores
-                </div>
-                <div class="title m-b-md">
-                    
-                    Freedive Gravedad Cero
-                </div>
-
-                <div class="links">
-                     <img src="{{URL::asset('/image/logoFGC.jpg')}}" alt="profile Pic" height="200" width="200">
-                  
-            </div>
-        </div>
+</div> 
     </body>
+    
+    <script>
+// Get the video
+var video = document.getElementById("myVideo");
+
+// Get the button
+var btn = document.getElementById("myBtn");
+
+// Pause and play the video, and change the button text
+function myFunction() {
+    if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+    } else {
+        video.pause();
+        btn.innerHTML = "Play";
+    }
+}
+</script>
 </html>
