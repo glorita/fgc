@@ -110,7 +110,7 @@
   <source src="{{URL::asset('/image/videofgc.MP4')}}" type="video/mp4">
 </video>
 
-<!-- Optional: some overlay text to describe the video -->
+<!-- Optional: some overlay text to describe the video  de prueba-->
 <div class="content">
   <h1>Instructores Freedive Gravedad Cero</h1>
   
