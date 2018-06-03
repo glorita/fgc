@@ -35,8 +35,10 @@
                         <h1>Registrar Curso</h1>
                         <p>Mediante el presente módulo, los instructores certificados de la Escuela Freedive Gravedad Cero, podrán registrar los cursos que serán  o han sido dictados.</p>
                         <div class="panel-body">
+                    
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('store') }}">
-                            {{ csrf_field() }}
+                     
+                        {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('pais') ? ' has-error' : '' }}">
                             <label for="pais" class="col-md-4 control-label">Pais:</label>
