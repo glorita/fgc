@@ -20,5 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/curso', 'CursoController@index')->name('new');
+Route::post('/curso', 'CursoController@store')->name('store');
 
 Route::resource('alumno', 'AlumnoController');
