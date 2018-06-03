@@ -66,7 +66,7 @@ class CursoController extends Controller
 
             // redirect
             Session::flash('message', 'Curso registrado Satisfactoriamente!');
-            return Redirect::to('cursos');
+            return Redirect::to('index');
         }
     }
 
